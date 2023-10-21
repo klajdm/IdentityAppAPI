@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdentityAPI.Data.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231018211642_AddingUserToDatabase")]
+    [Migration("20231021212957_AddingUserToDatabase")]
     partial class AddingUserToDatabase
     {
         /// <inheritdoc />
@@ -47,11 +47,13 @@ namespace IdentityAPI.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("FirsName")
-                        .HasColumnType("int");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("LastName")
-                        .HasColumnType("int");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
