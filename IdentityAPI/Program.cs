@@ -1,5 +1,6 @@
 using IdentityAPI.Data;
 using IdentityAPI.Models;
+using IdentityAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<Context>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<JWTService>();
 
 // defining our IdentityCore Service
 builder.Services.AddIdentityCore<User>(options =>

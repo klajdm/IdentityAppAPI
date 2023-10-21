@@ -7,9 +7,9 @@ namespace IdentityAPI.Models
     public class User : IdentityUser
     {
         [Required]
-        public int FirsName { get; set; }
+        public string FirstName { get; set; }
         [Required]
-        public int LastName { get; set; }
+        public string LastName { get; set; }
 
         public DateTime DateCreated { get; set; } = DateTime.UtcNow;
     }
